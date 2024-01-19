@@ -1,0 +1,10 @@
+configuration {
+	modi: "window,drun,ssh,combi";
+	font: "hack 15";
+	show-icons: true;
+	combi-modi: "drun,ssh,run";
+}
+
+//@theme "/usr/share/rofi/themes/fancy2.rasi"
+
+@theme "/usr/share/rofi/themes/material.rasi"

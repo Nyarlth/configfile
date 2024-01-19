@@ -1,0 +1,296 @@
+* {
+    border: none;
+    border-radius: 0;
+    /* `otf-font-awesome` is required to be installed for icons */
+    font-family: CodeNewRoman Nerd Font Propo;
+    min-height: 20px;
+}
+
+window#waybar {
+    background: transparent;
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+#workspaces {
+    margin-right: 8px;
+    border-radius: 10px;
+    transition: yes;
+    background: rgba(1,1,1,0);
+}
+
+
+
+tooltip {
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
+  background: linear-gradient(45deg, rgba(255,0,0,0.3) 0%, rgba(215,215,43,0.3) 8.33%, rgba(19,201,19,0.3) 16.6%, rgba(11,213,213,0.3) 25%, rgba(0,0,255,0.3) 33.3%, rgba(255,0,255,0.3) 41.6%, rgba(255,0,0,0.3) 50%, rgba(215,215,43,0.3) 58.33%, rgba(19,201,19,0.3) 66.6%, rgba(11,213,213,0.3) 75%, rgba(0,0,255,0.3) 83.33%, rgba(255,0,255,0.3) 91.66%,rgba(255,0,0,0.3) 100%);
+  background-size: 600% 600%;
+  border: 1px solid #666666;
+  border-radius: 8px;
+  padding: 8px;
+  box-shadow: 0 0 8px rgba(1,1,1,0.1);
+}
+
+tooltip * {
+  font-size: 18px;
+  font-weight: normal;
+  color: white;
+}
+
+big {
+  font-size: 20px;
+  color: red;
+}
+small {
+  font-size: 14px;
+}
+
+#workspaces button {
+    transition: none;
+    color: #7c818c;
+    background: transparent;
+    padding: 5px;
+    font-size: 18px;
+}
+
+#workspaces button.persistent {
+    color: #7c818c;
+    font-size: 12px;
+}
+
+/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+#workspaces button:hover {
+    transition: none;
+    box-shadow: inherit;
+    text-shadow: inherit;
+    border-radius: inherit;
+    color: #383c4a;
+    background: #7c818c;
+}
+
+#workspaces button.active {
+    transition: none;
+    box-shadow: inherit;
+    text-shadow: inherit;
+    border-radius: inherit;
+    color: #ffffff;
+    background:  linear-gradient(45deg, rgba(255,0,0,0.3) 0%, rgba(215,215,43,0.3) 8.33%, rgba(19,201,19,0.3) 16.6%, rgba(11,213,213,0.3) 25%, rgba(0,0,255,0.3) 33.3%, rgba(255,0,255,0.3) 41.6%, rgba(255,0,0,0.3) 50%, rgba(215,215,43,0.3) 58.33%, rgba(19,201,19,0.3) 66.6%, rgba(11,213,213,0.3) 75%, rgba(0,0,255,0.3) 83.33%, rgba(255,0,255,0.3) 91.66%,rgba(255,0,0,0.3) 100%);
+    background-size: 600% 600%;
+/*    animation: CBG 20s linear infinite;*/
+/*    background: rgba(42,228,85,0.3);*/
+}
+
+@keyframes CBG{
+	from {
+		background-position: 0 300%;
+	}
+
+	to {
+		background-position: -600% 300%;
+	}
+}
+
+#language {
+    padding-left: 16px;
+    padding-right: 8px;
+    border-radius: 10px 0px 0px 10px;
+    transition: none;
+    color: #ffffff;
+    background: #383c4a;
+}
+
+#keyboard-state {
+    margin-right: 8px;
+    padding-right: 16px;
+    border-radius: 0px 10px 10px 0px;
+    transition: none;
+    color: #ffffff;
+    background: #383c4a;
+}
+
+#custom-pacman {
+    padding-left: 16px;
+    padding-right: 8px;
+    border-radius: 10px 0px 0px 10px;
+    transition: none;
+    color: #ffffff;
+    background: #383c4a;
+}
+
+#custom-mail {
+    margin-right: 8px;
+    padding-right: 16px;
+    border-radius: 0px 10px 10px 0px;
+    transition: none;
+    color: #ffffff;
+    background: #383c4a;
+}
+
+#custom-player {
+    margin-right: 8px;
+    padding-right: 16px;
+    border-radius: 10px 10px 10px 10px;
+    font-size: 18px;
+    color: #ffffff;
+    background: rgba(0,0,0,0);
+
+}
+
+#mode {
+    padding-left: 16px;
+    padding-right: 16px;
+    border-radius: 10px;
+    transition: none;
+    color: #ffffff;
+    background: #383c4a;
+}
+
+#clock {
+    padding-left: 16px;
+    padding-right: 16px;
+    border-radius: 10px 10px 10px 10px;
+    font-size: 18px; 
+    transition: none;
+    color: #ffffff;
+    background: linear-gradient(45deg, rgba(0,0,0,0) 0%,rgba(120,120,120,0.3) 100%);
+/*    background: rgba(120,120,120,0.5);*/
+}
+
+
+
+
+#cpu {
+    padding-left: 16px;
+    padding-right: 16px;
+    border-radius: 10px 10px 10px 10px;
+    transition: none;
+    color: #ffffff;
+    background: linear-gradient(45deg, rgba(0,0,0,0) 0%,rgba(120,120,120,0.3) 100%);
+/*    background: rgba(120,120,120,0.5);*/
+}
+
+#custom-weather {
+    padding-right: 16px;
+    border-radius: 0px 10px 10px 0px;
+    transition: none;
+    color: #ffffff;
+    background: #383c4a;
+}
+
+#pulseaudio {
+    margin-right: 8px;
+    padding-left: 16px;
+    padding-right: 16px;
+    border-radius: 10px;
+    transition: none;
+    color: #ffffff;
+    background: linear-gradient(45deg, rgba(0,0,0,0) 0%,rgba(47,222,216,0.3) 100%);
+/*    background: rgba(47,222,216,0.5) ;*/
+}
+
+#pulseaudio.muted {
+/*    background-color: #90b1b1;*/
+    color: #2a5c45;
+}
+
+#custom-mem {
+    margin-right: 8px;
+    padding-left: 16px;
+    padding-right: 16px;
+    border-radius: 10px;
+    transition: none;
+    color: #ffffff;
+    background: linear-gradient(45deg, rgba(0,0,0,0) 0%,rgba(131,101,253,0.3) 100%);
+}
+
+#temperature {
+    margin-right: 8px;
+    padding-left: 16px;
+    padding-right: 16px;
+    border-radius: 10px;
+    transition: none;
+    color: #ffffff;
+    background: linear-gradient(45deg, rgba(0,0,0,0) 0%,rgba(131,101,253,0.3) 100%);
+/*    background: #383c4a;*/
+}
+
+#network {
+    margin-right: 8px;
+    padding-left: 16px;
+    padding-right: 16px;
+    border-radius: 10px;
+    font-size: 15px; 
+    transition: none;
+    color: #ffffff;
+    background: linear-gradient(45deg, rgba(0,0,0,0) 0%,rgba(47,222,47,0.3) 100%);
+/*    background: #383c4a;*/
+}
+
+#temperature.critical {
+    background-color: #eb4d4b;
+}
+
+#backlight {
+    margin-right: 8px;
+    padding-left: 16px;
+    padding-right: 16px;
+    border-radius: 10px;
+    transition: none;
+    color: #ffffff;
+    background: linear-gradient(45deg, rgba(0,0,0,0) 0%,rgba(200,200,200,0.3) 100%);
+/*    background: rgba(222,164,47,0.5);*/
+}
+
+#battery {
+    margin-right: 8px;
+    padding-left: 16px;
+    padding-right: 16px;
+    border-radius: 10px;
+    transition: none;
+    color: #ffffff;
+    background: linear-gradient(45deg, rgba(0,0,0,0) 0%,rgba(47,222,47,0.3) 100%);
+/*    background: rgba(47,222,47,0.5);*/
+}
+
+#battery.charging {
+    color: #ffffff;
+    background: linear-gradient(45deg, rgba(0,0,0,0) 0%,rgba(114,213,114,0.3) 100%);
+/*    background-color: rgba(114,213,114,0.5);*/
+}
+
+#battery.warning:not(.charging) {
+    color: #ffffff;
+    background: linear-gradient(45deg, rgba(0,0,0,0) 0%,rgba(197,222,114,0.3) 100%);
+/*    background-color: rgba(197,213,114,0.5);*/
+}
+
+#battery.critical:not(.charging) {
+    background: linear-gradient(45deg, rgba(0,0,0,0) 0%,rgba(123,160,144,0.3) 100%);
+/*    background-color: rgba(123,160,144,0.5);*/
+    color: #ffffff;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#tray {
+    padding-left: 16px;
+    padding-right: 16px;
+    border-radius: 10px;
+    transition: none;
+    color: rgb(229,229,229);
+    background: rgba(19,152,229,0.0);
+}
+
+@keyframes blink {
+    to {
+        background-color: #ffffff;
+        color: #000000;
+    }
+}
