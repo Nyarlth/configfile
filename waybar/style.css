@@ -103,6 +103,10 @@ small {
     background: #383c4a;
 }
 
+#window {
+  color: #ffffff;
+}
+
 #keyboard-state {
     margin-right: 8px;
     padding-right: 16px;
@@ -168,6 +172,7 @@ small {
     padding-right: 16px;
     border-radius: 10px 10px 10px 10px;
     transition: none;
+    min-width: 100px;
     color: #ffffff;
     background: linear-gradient(45deg, rgba(0,0,0,0) 0%,rgba(120,120,120,0.3) 100%);
 /*    background: rgba(120,120,120,0.5);*/

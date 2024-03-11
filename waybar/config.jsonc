@@ -6,7 +6,7 @@
     // "width": 1280, // Waybar width
     // Choose the order of the modules
     "modules-center": ["clock"], 
-    "modules-left": ["custom/player", "hyprland/workspaces", "cpu"], 
+    "modules-left": ["custom/player", "hyprland/workspaces", "cpu", "wlr/taskbar" , "hyprland/window"], 
     "modules-right": ["network", "pulseaudio", "custom/mem", "temperature", "backlight", "battery"],
 
 
@@ -156,7 +156,38 @@
         "format-icons": ["","","","","","","","","","","","","","",""],
         "min-length": 3,
     },
-
+    "wlr/taskbar": {
+      "format": "{icon}",
+      "icon-size": 14,
+      "icon-theme": "Numix-Circle",
+      "tooltip-format": "{title}",
+      "on-click": "activate",
+      "on-click-middle": "close",
+      "ignore-list": [
+          "Alacritty"
+      ],
+      "app_ids-mapping": {
+        "firefoxdeveloperedition": "firefox-developer-edition"
+      },
+      "rewrite": {
+        "Firefox Web Browser": "Firefox",
+        "Foot Server": "Terminal"
+      }
+    },
+     "hyprland/window": {
+        "format": " {}",
+        "separate-outputs": true,
+        "rewrite": {
+          "(.*)Alacritty": "$1 󰚺 ",
+          "(.*)firefox": "$1 󰈹",
+          "(.*) - Visual Studio Code": "$1 󰨞 ",
+          "(.*)musicfox": "$1 MusicFox  ",
+          "(.*)Ranger": "$1 Ranger  ",
+          " nvim(.*)": "$1 ",
+          "(.*) - - VIM": "$1  "
+        },
+        "max-length": 20
+     },
     "battery": {
         "states": {
             "warning": 30,
