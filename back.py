@@ -2,7 +2,9 @@
 import os
 import sys
 import json
-
+## the cli usage 
+## back.py {c(copy) m(copy and symble) rm(rm the backfile) back(rm symble and back the file) config(set .backrc)}
+##         group(opition set the backfile group)
 
 def main():
     if os.path.exists(os.getenv("HOME") + "/.backrc"):
@@ -29,7 +31,7 @@ def main():
                 file_name = abs_path.split("/")[-1]
                 dot_file = file_name[0] == "."
                 if dot_file:
-                    file_name = file_name[:1]
+                    file_name = file_name[1:]
                 if "group" in arg_dic:
                     group = arg_dic["group"]
                 else:
@@ -55,7 +57,7 @@ def main():
                 file_name = abs_path.split("/")[-1]
                 dot_file = file_name[0] == "."
                 if dot_file:
-                    file_name = file_name[:1]
+                    file_name = file_name[1:]
                 if "group" in arg_dic:
                     group = arg_dic["group"]
                 else:
