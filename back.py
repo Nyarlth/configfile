@@ -100,6 +100,19 @@ def main():
             )
         else:
             print("File does not exist!")
+    
+    if "symble" in arg_dic:
+        if "group" in arg_dic:
+            group = arg_dic["group"]
+        else:
+            group = "None"
+        if arg_dic["symble"] in map[group]:
+            os.system(f"rm {map[group][arg_dic['symble']]['orgin_path']}")
+            os.system(
+                f"ln -s {root + arg_dic['symble']} {map[group][arg_dic['symble']]['orgin_path']}"
+            )
+        else:
+            print("File does not exist!")
     with open(file, "w") as fp:
         fp.write(json.dumps(map))
 
