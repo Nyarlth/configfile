@@ -2,127 +2,120 @@
 import os
 import sys
 import json
-## the cli usage 
-## back.py {c(copy) m(copy and symble) rm(rm the backfile) back(rm symble and back the file) config(set .backrc)}
-##         group(opition set the backfile group)
 
-def main():
-    if os.path.exists(os.getenv("HOME") + "/.backrc"):
-        with open(os.getenv("HOME") + "/.backrc", "r") as fp:
-            root = fp.read().split("\n")[0]
+def change(old:str, keys:dict) -> str:
+    new = old
+    for key, path in keys.items():
+        new = new.replace("{%s}"%key, path)
+    return new
+def _change(old:str, keys:dict) -> str:
+    new = old
+    for key, path in keys.items():
+        new = new.replace(path ,"{%s}"%key)
+    return new
+
+def args_solve():
+    dic = {}
+    _ = []
+    arg_list = []
+    for i in sys.argv[1:]:
+        if i[0]=="-":
+            arg_list.append(i)
+            _ = []
+            dic[i] = _
+        else:
+            _.append(i.split("@"))
+    return dic, arg_list
+
+def solve(key,file):
+    if   key == "-c":
+        _c(*file)
+    elif key == "-m":
+        _m(*file)
+    elif key == "-r":
+        _r(*file)
+    elif key == "-b":
+        _b(*file)
+    elif key == "-s":
+        _s(*file)
+
+def _c(file,group = "None"):
+    if os.path.exists(file):
+        abs_path = os.path.abspath(file)
+        file_name = abs_path.split("/")[-1]
+        dot_file = file_name[0] == "."
+        if dot_file:
+            file_name = file_name[1:]
+        
+        if group not in map:
+            map[group] = {}
+        if file_name in map[group]:
+            print("Error! File already back up!")
+        else:
+            os.system(f"cp -r {abs_path} {root + file_name}")
+            file_j = map[group][file_name] = {}
+            file_j["orgin_path"] = _change(abs_path,path_ref)
+            file_j["dot"] = dot_file
     else:
-        root = os.getenv("HOME") + "/configfile/"
-    file = root + ".storage.json"
-    with open(file, "r") as fp:
-        s_j = fp.read()
-    map = json.loads(s_j)
-# print(map)
-# print(os.getcwd())
-# print(sys.argv)
-    arg = sys.argv
-    arg_dic = {}
-    for i in range(1, len(arg), 2):
-        arg_dic[arg[i]] = arg[i + 1]
-# print(arg_dic)
-    if "c" in arg_dic:
-        try:
-            if os.path.exists(arg_dic["c"]):
-                abs_path = os.path.abspath(arg_dic["c"])
-                file_name = abs_path.split("/")[-1]
-                dot_file = file_name[0] == "."
-                if dot_file:
-                    file_name = file_name[1:]
-                if "group" in arg_dic:
-                    group = arg_dic["group"]
-                else:
-                    group = "None"
-                if group not in map:
-                    map[group] = {}
-                if file_name in map[group]:
-                    print("Error! File already back up!")
-                else:
-                    file_j = map[group][file_name] = {}
-                    file_j["orgin_path"] = abs_path
-                    file_j["dot"] = dot_file
-                    os.system(f"cp -r {abs_path} {root + file_name}")
-            else:
-                print("No such file or direct")
-        except:
-            print("Please input file name")
+        print("No such file named %s"%file)
 
-    if "m" in arg_dic:
-        try:
-            if os.path.exists(arg_dic["m"]):
-                abs_path = os.path.abspath(arg_dic["m"])
-                file_name = abs_path.split("/")[-1]
-                dot_file = file_name[0] == "."
-                if dot_file:
-                    file_name = file_name[1:]
-                if "group" in arg_dic:
-                    group = arg_dic["group"]
-                else:
-                    group = "None"
-                if group not in map:
-                    map[group] = {}
-                if file_name in map[group]:
-                    print("Error! File already back up!")
-                else:
-                    file_j = map[group][file_name] = {}
-                    file_j["orgin_path"] = abs_path
-                    file_j["dot"] = dot_file
-                    os.system(f"mv {abs_path} {root + file_name}")
-                    os.system(f"ln -s {root + file_name} {abs_path}")
-            else:
-                print("No such file or direct")
-        except:
-            print("Please input file name")
+def _m(file,group = "None"):
+    if os.path.exists(file):
+        abs_path = os.path.abspath(file)
+        file_name = abs_path.split("/")[-1]
+        dot_file = file_name[0] == "."
+        if dot_file:
+            file_name = file_name[1:]
+        
+        if group not in map:
+            map[group] = {}
+        if file_name in map[group]:
+            print("Error! File already back up!")
+        else:
+            os.system(f"mv {abs_path} {root + file_name}")
+            os.system(f"ln -s {root + file_name} {abs_path}")
+            file_j = map[group][file_name] = {}
+            file_j["orgin_path"] = _change(abs_path,path_ref)
+            file_j["dot"] = dot_file
+    else:
+        print("No such file named %s"%file)
 
-    if "rm" in arg_dic:
-        if "group" in arg_dic:
-            group = arg_dic["group"]
-        else:
-            group = "None"
-        if arg_dic["rm"] in map[group]:
-            map[group].pop(arg_dic["rm"])
-            os.system(f"rm -r {root + arg_dic['rm']}")
-        else:
-            print("File does not exist!")
+def _r(file, group="None"):
+    if file in map[group]:
+        map[group].pop(file)
+        os.system(f"rm -r {root + file}")
+    else:
+        print("%s does not exist!"%file)
 
-    if "back" in arg_dic:
-        if "group" in arg_dic:
-            group = arg_dic["group"]
-        else:
-            group = "None"
-        if arg_dic["back"] in map[group]:
-            os.system(f"rm {map[group][arg_dic['back']]['orgin_path']}")
-            os.system(
-                f"cp -r {root + arg_dic['back']} {map[group][arg_dic['back']]['orgin_path']}"
-            )
-        else:
-            print("File does not exist!")
+def _s(file, group="None"):
+    if  file in map[group]:
+        os.system(f"rm -r {change(map[group][file]['orgin_path'],path_ref)}")
+        os.system(
+            f"ln -s {root + file} {change(map[group][file]['orgin_path'],path_ref)}"
+        )
+    else:
+        print("%s does not exist!"%file)
     
-    if "symble" in arg_dic:
-        if "group" in arg_dic:
-            group = arg_dic["group"]
-        else:
-            group = "None"
-        if arg_dic["symble"] in map[group]:
-            os.system(f"rm {map[group][arg_dic['symble']]['orgin_path']}")
-            os.system(
-                f"ln -s {root + arg_dic['symble']} {map[group][arg_dic['symble']]['orgin_path']}"
-            )
-        else:
-            print("File does not exist!")
-    with open(file, "w") as fp:
-        fp.write(json.dumps(map))
-
+def _b(file, group="None"):
+    if  file in map[group]:
+        os.system(f"rm -r {change(map[group][file]['orgin_path'],path_ref)}")
+        os.system(
+            f"cp -r {root + file} {change(map[group][file]['orgin_path'],path_ref)}"
+        )
+    else:
+        print("%s does not exist!"%file)
 
 def set_config():
     path = os.getcwd() + "/"
     path_ = input(f"Input the correct path, default is <{path}> :")
     if path_ and os.path.exists(path_):
         path = path_
-    os.system(f"echo {path} > {os.getenv('HOME') + '/.backrc'}")
+    
+    backrc = {"path":path}
+    backrc["Env"] = ["HOME"]
+    backrc["ref"] = {}
+    with open(f"{os.getenv('HOME') + '/.backrc'}", "w") as fp:
+        fp.write(json.dumps(backrc))
 
 
 arg = sys.argv
@@ -133,4 +126,26 @@ try:
 except:
     pass
 
-main()
+if os.path.exists(os.getenv("HOME") + "/.backrc"):
+    with open(os.getenv("HOME") + "/.backrc", "r") as fp:
+        backrc = json.loads(fp.read())
+    root = backrc["path"] 
+else:
+    root = "{HOME}" + "/configfile/"
+path_ref = backrc["ref"]
+for i in backrc["Env"]:
+    if i not in path_ref:
+        path_ref[i] = os.getenv("HOME")
+
+file = change(root, path_ref) + ".storage.json"
+with open(file, "r") as fp :
+    s_j = fp.read()
+map = json.loads(s_j)
+arg_dic, arg_list = args_solve()
+
+for key in arg_list:
+    for i in arg_dic[key]:
+        solve(key,i)
+
+with open(file, "w") as fp:
+    fp.write(json.dumps(map))
