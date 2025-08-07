@@ -236,7 +236,7 @@
     "spacing": 0
   },
   "network": {
-    "family": "ipv6",
+    "family": "ipv4",
     "format-wifi": ": {bandwidthUpBytes} :{bandwidthDownBytes}{icon}",
     "format-ethernet": "󰈀: {bandwidthUpBytes} :{bandwidthDownBytes}",
     "interval": 3,

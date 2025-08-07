@@ -1,14 +1,20 @@
 return {
   {
-    "L3MON4D3/LuaSnip",
-    keys = function()
-      return {}
-    end,
-  },
-  {
     "hrsh7th/nvim-cmp",
     dependencies = {
       "hrsh7th/cmp-emoji",
+      "hrsh7th/cmp-buffer", -- 缓冲区内容补全
+      "hrsh7th/cmp-path", -- 文件路径补全
+      "hrsh7th/cmp-nvim-lsp", -- LSP 补全
+    },
+    {
+      "L3MON4D3/LuaSnip",
+      dependencies = {
+        "hrsh7th/nvim-cmp",
+      },
+      keys = function()
+        return {}
+      end,
     },
     ---@param opts cmp.ConfigSchema
     opts = function(_, opts)
