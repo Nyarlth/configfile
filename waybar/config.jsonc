@@ -1,7 +1,7 @@
 {
   "layer": "top", // Waybar at top layer
   "position": "top", // Waybar position (top|bottom|left|right)
-  "height": 10, // Waybar height (to be removed for auto height)
+  "height": 5, // Waybar height (to be removed for auto height)
   "margin": "5 20 0 20",
   // "width": 1280, // Waybar width
   // Choose the order of the modules
@@ -13,7 +13,9 @@
     "hyprland/workspaces",
     "cpu",
     "wlr/taskbar",
+    "tray",
     "hyprland/window"
+        
   ],
   "modules-right": [
     "network",
@@ -183,7 +185,7 @@
   },
   "wlr/taskbar": {
     "format": "{icon}",
-    "icon-size": 14,
+    "icon-size": 15,
     "icon-theme": "Numix-Circle",
     "tooltip-format": "{title}",
     "on-click": "activate",
@@ -232,13 +234,13 @@
     "on-update": "$HOME/.config/waybar/scripts/check_battery.sh",
   },
   "tray": {
-    "icon-size": 16,
+    "icon-size": 15,
     "spacing": 0
   },
   "network": {
     "family": "ipv4",
-    "format-wifi": ": {bandwidthUpBytes} :{bandwidthDownBytes}{icon}",
-    "format-ethernet": "󰈀: {bandwidthUpBytes} :{bandwidthDownBytes}",
+    "format-wifi": ":{bandwidthDownBytes}{icon}",
+    "format-ethernet": "󰈀 :{bandwidthDownBytes}",
     "interval": 3,
     "tooltip-format-wifi": "{essid}: {ipaddr}",
     //       "format-linked": "{ifname} (No IP) ",

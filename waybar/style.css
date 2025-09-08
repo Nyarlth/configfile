@@ -3,7 +3,8 @@
     border-radius: 0;
     /* `otf-font-awesome` is required to be installed for icons */
     font-family: CodeNewRoman Nerd Font Propo;
-    min-height: 20px;
+    font-size: 12px;
+    min-height: 10px;
 }
 
 window#waybar {
@@ -20,46 +21,15 @@ window#waybar.hidden {
     transition: yes;
     background: rgba(1,1,1,0);
 }
-
-
-
-tooltip {
-  font-size: 14px;
-  font-weight: bold;
-  color: white;
-  background: linear-gradient(45deg, rgba(255,0,0,0.3) 0%, rgba(215,215,43,0.3) 8.33%, rgba(19,201,19,0.3) 16.6%, rgba(11,213,213,0.3) 25%, rgba(0,0,255,0.3) 33.3%, rgba(255,0,255,0.3) 41.6%, rgba(255,0,0,0.3) 50%, rgba(215,215,43,0.3) 58.33%, rgba(19,201,19,0.3) 66.6%, rgba(11,213,213,0.3) 75%, rgba(0,0,255,0.3) 83.33%, rgba(255,0,255,0.3) 91.66%,rgba(255,0,0,0.3) 100%);
-  background-size: 600% 600%;
-  border: 1px solid #666666;
-  border-radius: 8px;
-  padding: 8px;
-  box-shadow: 0 0 8px rgba(1,1,1,0.1);
-}
-
-tooltip * {
-  font-size: 18px;
-  font-weight: normal;
-  color: white;
-}
-
-big {
-  font-size: 20px;
-  color: red;
-}
-small {
-  font-size: 14px;
-}
-
 #workspaces button {
     transition: none;
     color: #7c818c;
     background: transparent;
     padding: 5px;
-    font-size: 18px;
 }
 
 #workspaces button.persistent {
     color: #7c818c;
-    font-size: 12px;
 }
 
 /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
@@ -83,6 +53,60 @@ small {
 /*    animation: CBG 20s linear infinite;*/
 /*    background: rgba(42,228,85,0.3);*/
 }
+
+
+tooltip {
+  font-weight: bold;
+  color: white;
+  background: linear-gradient(45deg, rgba(255,0,0,0.3) 0%, rgba(215,215,43,0.3) 8.33%, rgba(19,201,19,0.3) 16.6%, rgba(11,213,213,0.3) 25%, rgba(0,0,255,0.3) 33.3%, rgba(255,0,255,0.3) 41.6%, rgba(255,0,0,0.3) 50%, rgba(215,215,43,0.3) 58.33%, rgba(19,201,19,0.3) 66.6%, rgba(11,213,213,0.3) 75%, rgba(0,0,255,0.3) 83.33%, rgba(255,0,255,0.3) 91.66%,rgba(255,0,0,0.3) 100%);
+  background-size: 600% 600%;
+  border: 1px solid #666666;
+  border-radius: 8px;
+  padding: 8px;
+  box-shadow: 0 0 8px rgba(1,1,1,0.1);
+}
+
+tooltip * {
+  font-weight: normal;
+  color: white;
+}
+
+big {
+  font-size: 14px;
+  color: red;
+}
+small {
+  font-size: 8px;
+}
+
+#taskbar {
+    margin-right: 8px;
+    border-radius: 10px;
+    transition: yes;
+    background: rgba(1,1,1,0);
+
+}
+
+#taskbar button {
+    transition: none;
+    color: #7c818c;
+    background: transparent;
+    padding: 5px;
+}
+
+#taskbar button.persistent {
+    color: #7c818c;
+}
+
+/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+#taskbar button:hover {
+    box-shadow: inherit;
+    text-shadow: inherit;
+    border-radius: inherit;
+    color: #383c4a;
+    background: #7c818c;
+}
+
 
 @keyframes CBG{
 	from {
@@ -138,7 +162,6 @@ small {
     margin-right: 8px;
     padding-right: 16px;
     border-radius: 10px 10px 10px 10px;
-    font-size: 18px;
     color: #ffffff;
     background: rgba(0,0,0,0);
 
@@ -157,7 +180,7 @@ small {
     padding-left: 16px;
     padding-right: 16px;
     border-radius: 10px 10px 10px 10px;
-    font-size: 18px; 
+    font-size: 12px; 
     transition: none;
     color: #ffffff;
     background: linear-gradient(45deg, rgba(0,0,0,0) 0%,rgba(120,120,120,0.3) 100%);
@@ -172,7 +195,7 @@ small {
     padding-right: 16px;
     border-radius: 10px 10px 10px 10px;
     transition: none;
-    min-width: 100px;
+    min-width: 75px;
     color: #ffffff;
     background: linear-gradient(45deg, rgba(0,0,0,0) 0%,rgba(120,120,120,0.3) 100%);
 /*    background: rgba(120,120,120,0.5);*/
@@ -228,7 +251,6 @@ small {
     padding-left: 16px;
     padding-right: 16px;
     border-radius: 10px;
-    font-size: 15px; 
     transition: none;
     color: #ffffff;
     background: linear-gradient(45deg, rgba(0,0,0,0) 0%,rgba(47,222,47,0.3) 100%);
@@ -285,8 +307,8 @@ small {
 }
 
 #tray {
-    padding-left: 16px;
-    padding-right: 16px;
+    padding-left: 5px;
+    padding-right: 5px;
     border-radius: 10px;
     transition: none;
     color: rgb(229,229,229);
