@@ -1,10 +1,10 @@
 configuration {
-	modi: "window,drun,ssh,combi";
-	font: "hack 25";
+	modi: "drun,run,ssh,combi";
+	font: "hack 30";
 	show-icons: true;
 	combi-modi: "drun,ssh,run";
 }
 
-//@theme "/usr/share/rofi/themes/fancy.rasi"
+@theme "/home/zxy/.config/rofi/arlic.rasi"
 
-@theme "/usr/share/rofi/themes/material.rasi"
+//@theme "/usr/share/rofi/themes/material.rasi"
