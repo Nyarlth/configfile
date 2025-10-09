@@ -11,9 +11,7 @@
   ],
   "modules-left": [
     "hyprland/workspaces",
-    "cpu",
-    "wlr/taskbar",
-    "tray",
+    "group/tray",
     "hyprland/window"
         
   ],
@@ -28,6 +26,16 @@
   //***************************
   //*  Modules configuration  *
   //***************************
+  "group/tray": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-duration": 500,
+    },
+    "modules": ["cpu", "tray", "wlr/taskbar"]
+  },
+
+
+
   "hyprland/workspaces": {
     "active-only": false,
     "all-outputs": false,
@@ -91,8 +99,9 @@
     "tooltip": false,
   },
   "cpu": {
-    "format": "<span style=\"italic\">{usage}% 󰵎 :{max_frequency}</span>",
+    "format": "<span style=\"italic\">{usage}% </span>",
     "interval": 1,
+    "tooltip": false,
   },
   "clock": {
     // "timezone": "America/New_York",

@@ -191,11 +191,11 @@ small {
 
 
 #cpu {
-    padding-left: 16px;
-    padding-right: 16px;
+    padding-left: 7px;
+    padding-right: 1px;
     border-radius: 10px 10px 10px 10px;
     transition: none;
-    min-width: 75px;
+    min-width: 25px;
     color: #ffffff;
     background: linear-gradient(45deg, rgba(0,0,0,0) 0%,rgba(255,0,0,0.4) 100%);
 /*    background: rgba(120,120,120,0.5);*/

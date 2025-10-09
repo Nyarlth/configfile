@@ -31,7 +31,7 @@
 window {
     transparency: "real";
     background-color: @base00DD;  /* Slight transparency */
-    width:40%;
+    width:1000px;
     blur: true;
     blur-radius: 15px;
     blur-sigma: 30;
