@@ -192,6 +192,7 @@
       ""
     ],
     "min-length": 1,
+    "tooltip": false,
   },
   "wlr/taskbar": {
     "format": "{icon}",
@@ -225,7 +226,7 @@
       " nvim(.*)": "$1 ",
       "(.*) - - VIM": "$1  "
     },
-    "max-length": 20
+    "max-length": 40
   },
   "battery": {
     "states": {
@@ -257,7 +258,7 @@
     "tooltip-format-wifi": "{essid}: {ipaddr}",
     //       "format-linked": "{ifname} (No IP) ",
     "format-disconnected": "Disconnected ⚠",
-    "on-click": "alacritty -e nmtui",
+    "on-click": "alacritty --config-file ~/.config/alacritty/f_alacritty.toml -e nmtui",
     "format-icons": [
       "󰤯",
       "󰤟",
