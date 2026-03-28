@@ -75,6 +75,7 @@ mods = "Control|shift"
 [window]
 opacity = 0.3
 dynamic_title = true
+decorations = "none"
 
 [window.dimensions]
 columns = 80 
