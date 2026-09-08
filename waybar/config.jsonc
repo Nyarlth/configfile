@@ -116,6 +116,7 @@
     "exec": "$HOME/.config/waybar/scripts/wttr.py",
     "return-type": "json"
   },
+
   "pulseaudio": {
     // "scroll-step": 1, // %, can be a float
     "reverse-scrolling": 1,

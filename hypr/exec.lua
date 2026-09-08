@@ -1,0 +1,6 @@
+hl.on("hyprland.start", function()
+	hl.exec_cmd("xrdb -merge ~/.Xresources")
+	hl.exec_cmd("fcitx5 -d")
+	hl.exec_cmd("swaybg -i ~/.config/wallpaper/Jammy_Emboss.png -m fill")
+	hl.exec_cmd("waybar")
+end)
