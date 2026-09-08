@@ -105,7 +105,8 @@
   },
   "clock": {
     // "timezone": "America/New_York",
-    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    //"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "tooltip-format": "<big>{calendar}</big>",
     "format": "{:%a, %d %b, %I:%M %p}"
   },
   "custom/weather": {
@@ -255,7 +256,7 @@
     "format-wifi": ":{bandwidthDownBytes}{icon}",
     "format-ethernet": "󰈀 :{bandwidthDownBytes}",
     "interval": 3,
-    "tooltip-format-wifi": "{essid}: {ipaddr}",
+    "tooltip-format-wifi": "{essid}",
     //       "format-linked": "{ifname} (No IP) ",
     "format-disconnected": "Disconnected ⚠",
     "on-click": "alacritty --config-file ~/.config/alacritty/f_alacritty.toml -e nmtui",
